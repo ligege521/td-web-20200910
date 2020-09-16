@@ -1,15 +1,17 @@
 @import 'reset.less';
 @import 'keyframe.less';
 @import 'common.less';
+// @import './font.css';
 
 @img: '../img/';
+
 
 html,
 body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	background: #000;
+	// background: #000;
 	font-size: 14px;
 	-webkit-user-select: none;
 	user-select: none;
@@ -24,7 +26,8 @@ body {
 		width: 100vw;
 		height: 100vh;
 		overflow: hidden;
-		background-image: url('@{img}1.png');
+		
+		// background-image: url('@{img}1.png');
 	}
 }
 
@@ -38,7 +41,7 @@ body {
 	.m-wrap {
 		width: 100vh;
 		height: 100vw;
-		background-image: url('@{img}2.png');
+		// background-image: url('@{img}2.png');
 	}
 }
 
@@ -72,5 +75,267 @@ body {
 		svg rect {
 			fill: #fff;
 		}
+	}
+}
+
+// loading
+.m-loading{
+	position: relative;
+	z-index: 5;
+	background-color: #fff;
+	.bg{
+		width: 7.5rem;
+		height: 16rem;
+		background-image: url("@{img}/loading/bg.png");
+		.icon-loading{
+			display: none;
+			width: 0.6rem;
+			height: 0.6rem;
+			border-top: 2Px solid #2ebde7;
+			border-left: 2Px solid #2ebde7;
+			border-bottom: 2Px solid transparent;
+			border-right: 2Px solid transparent;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: 2rem 0 0 -0.3rem;
+			z-index: 10;
+			animation: rotateWhole 1s infinite linear;
+		}
+	}
+	.loading-ani{
+		width: 4.63rem;
+		height: 1.76rem;
+		margin-top: -1.25rem;
+		overflow: hidden;
+
+		.train{
+			font-size: 0px;
+			width: 4.63rem;
+			height: 16rem;
+			animation: loadingAni 1s steps(9) infinite;
+			.train-item{
+				height: calc( 16rem / 9 );
+			}
+			.train-item:nth-child(1){
+				background-image: url("@{img}/train/share_img_1.png");
+			}
+			.train-item:nth-child(2){
+				background-image: url("@{img}/train/share_img_2.png");
+			}
+			.train-item:nth-child(3){
+				background-image: url("@{img}/train/share_img_3.png");
+			}
+			.train-item:nth-child(4){
+				background-image: url("@{img}/train/share_img_4.png");
+			}
+			.train-item:nth-child(5){
+				background-image: url("@{img}/train/share_img_5.png");
+			}
+			.train-item:nth-child(6){
+				background-image: url("@{img}/train/share_img_6.png");
+			}
+			.train-item:nth-child(7){
+				background-image: url("@{img}/train/share_img_7.png");
+			}
+			.train-item:nth-child(8){
+				background-image: url("@{img}/train/share_img_8.png");
+			}
+			.train-item:nth-child(9){
+				background-image: url("@{img}/train/share_img_9.png");
+			}
+		}
+	}
+	.btn-play{
+		width: 1.37rem;
+		height: 1.33rem;
+		background-image: url("@{img}/loading/loading.png");
+		margin-top: 4.22rem;
+		transform-origin:0% 0%;
+		animation: loadPlay 2s linear infinite;
+	}
+
+}
+.m-video{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #fff;
+	// pointer-events: none;
+	z-index: 4 !important;
+	.video{
+		width: 7.5rem;
+		height: 16rem;
+	}
+}
+.btn-skip{
+	display: none;
+	width: 1rem;
+	height: .5rem;
+	top: .2rem;
+	right: .3rem;
+	color: #ddd;
+	border: 1px solid #ddd;
+	border-radius: .1rem;
+	padding: .1rem;
+	font-size: .3rem;
+	text-align: center;
+	line-height: .5rem;
+	z-index: 4;
+}
+.m-end{
+	z-index: 3;
+	.bg{
+		width: 7.5rem;
+		height: 16rem;
+		background-image: url('@{img}/end/bg.png');
+		.m-video-two{
+			width: 7rem;
+			height: 3.68rem;
+			border-radius: .2rem;
+			margin-top: -1.58rem;
+			.video-two{
+				width: 100%;
+				height: 100%;
+				border-radius: .2rem;
+			}
+		}
+		.btn-want-donate{
+			width: 2.78rem;
+			height: 1.75rem;
+			background-image: url('@{img}/end/btn-want-donate.png');
+			margin-top: 4rem;
+			animation: scaleAni 2s ease infinite;
+			transform-origin:0% 0%;
+		}
+	}
+}
+.donate-warp {
+	width: 7.5rem;
+	height: 16rem;
+	background-image: url('@{img}/donate/bg.png');
+	overflow: hidden;
+	z-index: 2;
+	.money-top{
+		margin-top: -20rem;
+	}
+	.money-warp{
+		width: 7.34rem;
+		height: 15.61rem;
+		background-image: url('@{img}/donate/donate.png');
+		transition: all linear 0.7s ;
+		.btn-want-donate{
+			width: 2.78rem;
+			height: 1.75rem;
+			background-image: url('@{img}/end/btn-want-donate.png');
+			margin-top: 3.8rem;
+			animation: scaleAni 2s ease infinite;
+			transform-origin:0% 0%;
+		}
+		.btn-money{
+			display: block;
+			width: 1.03rem;
+			height: 0.73rem;
+			font-size: 0px;
+			text-align: center;
+			margin-top: -3.1rem;
+			margin-left: 1.2rem;
+		}
+		.btn-money:nth-child(1){
+			// background-image: url('@{img}/donate/1.png');
+			margin-left:0rem ;
+		}
+		.btn-money:nth-child(2){
+			// background-image: url('@{img}/donate/5.png');
+			margin-left: -1.2rem;
+		}
+		.btn-money:nth-child(3){
+			// background-image: url('@{img}/donate/10.png');
+			margin-left: 0.1rem;
+		}
+		.hover-money{
+			background: transparent;
+			width: 2.5rem;
+			height: .5rem;
+			text-align: right;
+			margin-top: -2.25rem;
+			margin-left: .5rem;
+			font-size: .35rem;
+			color: #2f3133;
+			outline: none;
+			border: none;
+		}
+		.btn-donate{
+			width: 1.8rem;
+			height: .6rem;
+			margin-top: -.48rem;
+		}
+		.btn-close{
+			width: 0.7rem;
+			height: 0.7rem;
+			margin-top: -3.8rem;
+    		margin-left: 3.2rem;
+		}
+	}
+}
+.m-share{
+	width: 100%;
+	height: 100%;
+	.bg{
+		width: 7.5rem;
+		height: 16rem;
+		background-image: url('@{img}/share/bg.png');
+	}
+	.headimg{
+		width: 1.38rem;
+		height: 1.38rem;
+		border-radius: 50%;
+		background-image: url('@{img}/share/head.png');
+		margin: -3.3rem 0 0 -2.5rem;
+	}
+	.text{
+		margin: -3.3rem 0 0 2.2rem;
+		font-size: 0.42rem;
+		line-height: .6rem;
+	}
+	.p-img {
+		width: 6.16rem;
+		height: 5.5rem;
+		margin-top: 0.6rem;
+		background-image: url('@{img}/share/share2.png');
+		background-position-y: 60%;
+	}
+	.btn-save{
+		width: 2.4rem;
+		height: 1.5rem;
+		background-image: url('@{img}/share/save.png');
+		margin: 4.2rem 0 0 0;
+		border-radius: 0.2rem;
+	}
+}
+.m-share-img{
+	display: none;
+	.bg{
+		width: 7.5rem;
+		height: 16rem;
+		background-image: url('@{img}/share/shareImg/bg.png');
+	}
+	.save-share{
+		width: 4.65rem;
+		height: 9.92rem;
+		margin-top: -0.7rem;
+		overflow: hidden;
+		opacity: 1;
+		background-image: url('@{img}/share/shareImg/share_img_1.jpg');
+	}
+	.save-tips{
+		height: 1rem;
+		text-align: center;
+		color: #fff;
+		margin-top: 5rem;
+		font-size: 0.25rem;
+		letter-spacing: 0.05rem;
 	}
 }

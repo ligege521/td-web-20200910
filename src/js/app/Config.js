@@ -11,16 +11,16 @@ Config.imgPath = process.env.NODE_ENV === 'handover' ? process.env.PATH : proces
 
 // 默认分享语
 Config.defShare = {
-    title: '分享标题',
-    desc: '分享描述',
-    link: location.href,
-    // 分享配图
-    img: require('../../img/share.jpg'),
-    // 项目名，数据查询时候用
-    proj: 'streetgame',
-    // 填写公众号绑定的appid
-    appid: '', // 例如: wx12380ea254191f1b
-    cnzz: '' // 例如: 1259179479
+    // title: '分享标题',
+    // desc: '分享描述',
+    // link: location.href,
+    // // 分享配图
+    // img: require('../../img/share.jpg'),
+    // // 项目名，数据查询时候用
+    // proj: 'streetgame',
+    // // 填写公众号绑定的appid
+    // appid: '', // 例如: wx12380ea254191f1b
+    // cnzz: '' // 例如: 1259179479
 };
 
 Config.Preload = Preload;
@@ -28,14 +28,14 @@ Config.Preload = Preload;
 // 预加载的图片
 Config.pageImgs = {
     imgs: [
-        {
-            name: 'test',
-            url: require('../../media/test_audio.mp3')
-        },
-        {
-            name: 'test2',
-            url: require('../../img/2.png')
-        }
+        // {
+        //     name: 'test',
+        //     url: require('../../media/test_audio.mp3')
+        // },
+        // {
+        //     name: 'test2',
+        //     url: require('../../img/2.png')
+        // }
     ],
     sprites: [
         /*

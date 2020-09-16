@@ -15,7 +15,8 @@ let MediaSprite = new TD.MediaSprite({
   wrap: '#videoWrap',   //如果没有wrap,直接添加到body
   type: 'video',         //如果是雪碧音可以填audio, 也可以不填
   src: 'http://hymm.treedom.cn/sound/bg.mp3',
-  classname: '.m-video'
+  classname: '.m-video',
+  isLoadAin:false,
   timeline: {
     'first': {
        begin: 0.0,
@@ -43,7 +44,7 @@ const MediaSprite = function (config) {
     const _config = config;
     let media = null;
     let domWrap = config.wrap ? document.querySelector(config.wrap) : null;
-    let isInit = false;
+    let isInit = true;
     let _currentHandler = null;
 
     let resizeVideo = function (config) {
@@ -80,6 +81,19 @@ const MediaSprite = function (config) {
         media.addEventListener('timeupdate', resizeGo);
     };
 
+    let loadAnimation = function () {
+        media.addEventListener('loadstart', () => {
+            $('.icon-loading').css('display', 'block');
+        });
+        // media.addEventListener('canplay', () => {
+        //     $('.icon-loading').hide();
+        // });
+        media.addEventListener('canplay', () => {
+            setTimeout(() => {
+                $('.icon-loading').hide();
+            }, 500);
+        });
+    };
     let _createMedia = function () {
         if (_config.type === 'video') {
             media = document.createElement('video');
@@ -105,6 +119,7 @@ const MediaSprite = function (config) {
     };
 
     let gotoAndPlay = function (name, callback, loop) {
+        console.log(_config.timeline);
         let begin = _config.timeline[name].begin;
         let end = _config.timeline[name].end;
 
@@ -125,8 +140,7 @@ const MediaSprite = function (config) {
                 if (loop) {
                     media.currentTime = begin;
                 } else {
-                    this.pause();
-
+                    // this.pause();
                     if (domWrap) {
                         domWrap.style.zIndex = 0;
                     } else {
@@ -135,7 +149,6 @@ const MediaSprite = function (config) {
 
                     media.style.visibility = 'hidden';
                     media.removeEventListener('timeupdate', playHandler);
-
                     callback && callback(name);
                 }
             }
@@ -160,6 +173,9 @@ const MediaSprite = function (config) {
 
     let _init = function () {
         _createMedia();
+        if (_config.isLoadAin) {
+            loadAnimation();
+        }
     };
 
     let pause = function () {

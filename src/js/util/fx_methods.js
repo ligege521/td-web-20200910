@@ -32,7 +32,7 @@
     origShow.call(this)
     if (speed === undefined) speed = 0
     else this.css('opacity', 0)
-    return anim(this, speed, 1, '1,1', callback)
+    return anim(this, speed, 1, callback)
   }
 
   $.fn.hide = function (speed, callback) {

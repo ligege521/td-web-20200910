@@ -5,7 +5,7 @@
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <![endif]-->
-    <title>Treedom</title>
+    <title>童话车票</title>
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta name="robots" content="all">
     <meta name="author" content="Tencent-CP">
@@ -43,18 +43,82 @@
     <div class="m-main-wrap absf">
 
         <!-- 可删除 start -->
-        <button style="position: absolute;z-index: 2;top: 40%;left: 20%;" onclick="document.querySelector('.m-vertical').style.display='block';document.querySelector('.m-horizontal').style.display='none'">竖屏显示</button>
-        <button style="position: absolute;z-index: 2;right: 20%;top: 40%;" onclick="document.querySelector('.m-vertical').style.display='none';document.querySelector('.m-horizontal').style.display='block'">横屏显示</button>
+        <!-- <button style="position: absolute;z-index: 2;top: 40%;left: 20%;" onclick="document.querySelector('.m-vertical').style.display='block';document.querySelector('.m-horizontal').style.display='none'">竖屏显示</button> -->
+        <!-- <button style="position: absolute;z-index: 2;right: 20%;top: 40%;" onclick="document.querySelector('.m-vertical').style.display='none';document.querySelector('.m-horizontal').style.display='block'">横屏显示</button> -->
         <!-- 可删除 end -->
         
         <!-- 竖屏页 -->
         <div class="m-vertical absf">
-            <div class="m-wrap sizcover abcter">
+            <div class="m-wrap sizcover abcter" style="display: none;">
                 <!-- 业务逻辑代码 stat -->
 
-                <div class="m-loading"></div>
-                <div class="m-end"></div>
+                <div class="m-loading absf">
+                    <div class="bg abcter sizcont">
+                        <div class="icon-loading abs"></div>
+                        <!-- 加载 -->
+                        <div class="loading-ani abcter">
+                            <ul class="train" style="list-style: none;">
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                                <li class="train-item sizcont"></li>
+                            </ul>
+                        </div>
+                        <div class="btn-play abcter sizcont"></div>
+                    </div>
+                </div>
+                <!-- 视频开始播放 -->
                 
+                <div class="m-video abcter sizcont">
+                    <div class="btn-skip abs sizcont">跳过</div>
+                    <!-- js代码中添加视频播放 -->
+                </div>
+
+                <!-- 视频播放完成 -->
+                <div class="m-end absf sizcont">
+                    <div class="bg abcter sizcont">
+                        <div class="m-video-two abcter sizcont">
+
+                        </div>
+                        <!-- 童话成真 -->
+                        <div class="btn-want-donate abcter sizcont"></div>
+                    </div>
+                </div>
+                
+                <!-- 捐款页面 -->
+                <!-- 待补充，取消捐款没有过渡效果，层级原因，z-index分配不合理 -->
+                <div class="donate-warp abcter sizcont">
+                    <div class="money-warp money-top abs sizcont">
+                        <div class="btn-want-donate abcter sizcont"></div>
+                        <a class="btn-money sizcont abcter">1</a>
+                        <a class="btn-money sizcont abcter">5</a>
+                        <a class="btn-money sizcont abcter">10</a>
+                        <input type="number" class="hover-money abcter" value="5">
+                        <div class="btn-donate abcter"></div>
+                        <div class="btn-close abcter"></div>
+                    </div>
+                </div>
+
+                <!--  分享页面-->
+                <div class="m-share absf sizcont">
+                    <div class="bg sizcont abcter"></div>
+                    <div class="headimg abcter sizcont"></div>
+                    <div class="text tcter">
+                        我是<br>第<i>。。。</i>位守护者
+                    </div>
+                    <div class="p-img abcter sizcover"></div>
+                    <div class="btn-save sizcont abcter"></div>
+                </div>
+                <div class="m-share-img sizcont absf">
+                    <div class="bg abcter sizcont"></div>
+                    <div class="save-share abcter sizcont"></div>
+                    <div class="save-tips abcter sizcont">长按图片保存至相册</div>
+                </div>
                 <!-- 业务逻辑代码 end -->
             </div>
         </div>
@@ -67,7 +131,7 @@
         </div>
 
         <!-- loading小动画 -->
-        <div class="icon-loading absf hide">
+        <!-- <div class="icon-loading absf hide">
             <div class="inner abcter">
                 <svg class="abcter" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50">
@@ -78,7 +142,7 @@
                     </path>
                 </svg>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- 微信分享JSDK 需要时打开 -->

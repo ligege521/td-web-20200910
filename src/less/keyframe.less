@@ -30,3 +30,44 @@
     transform: translate3d(-738px,0,0);
   }
 }
+// 火车动画
+@-webkit-keyframes loadingAni {
+   100%{
+      transform: translateY(-100%);
+    }
+}
+// 加载动画
+@-webkit-keyframes rotateWhole{
+   0%{
+      transform: rotateZ(0deg);
+   }
+   100%{
+      transform: rotateZ(360deg);
+    }
+}
+// 开启童话
+@-webkit-keyframes loadPlay {
+   0%{
+      transform: scale(1) translate(-50%, -50%);
+    }
+   50%{
+      transform: scale(1.2) translate(-50%, -50%);
+    }
+   100%{
+      transform: scale(1) translate(-50%, -50%);
+    }
+
+}
+// 童话成真
+@-webkit-keyframes scaleAni {
+   0%{
+      transform: scale(1) translate(-50%, -50%);
+    }
+   50%{
+      transform: scale(1.1) translate(-50%, -50%);
+    }
+   100%{
+      transform: scale(1) translate(-50%, -50%);
+    }
+
+}
