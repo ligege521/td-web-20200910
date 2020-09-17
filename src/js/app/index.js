@@ -66,7 +66,6 @@ let mediaTwo = new MediaSprite({
 });
 
 window.onload = function () {
-    console.log($('.m-wrap').show);
     $('.m-wrap').show();
     // load页面
     var loadPageBack = function () {
@@ -83,7 +82,6 @@ window.onload = function () {
         var shareImgView = pagePool.shareImgView;
         // var donateView = pagePool.donateView;
         loadView.show();
-
         // 点击开启童话
         $('.m-loading')[0].addEventListener('click', function () {
             loadView.hide();

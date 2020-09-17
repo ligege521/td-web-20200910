@@ -90,6 +90,9 @@ var LoadViewController = function () {
         _private.isInit = true;
     };
 
+    // $(this)
+    _that.this = _private.pageEl;
+
     // 显示
     _that.show = function () {
         _private.pageEl.show();

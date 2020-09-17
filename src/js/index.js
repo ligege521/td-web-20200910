@@ -66,7 +66,6 @@ let mediaTwo = new MediaSprite({
 });
 
 window.onload = function () {
-    console.log($('.m-wrap').show);
     $('.m-wrap').show();
     // load页面
     var loadPageBack = function () {
@@ -129,6 +128,7 @@ window.onload = function () {
         $('.btn-donate')[0].addEventListener('click', function () {
             var donateView = pagePool.donateView;
             donateView.hide();
+            videoView.hide();
         });
 
         // 分享页
@@ -136,14 +136,6 @@ window.onload = function () {
 
         // 分享图片页
         $('.m-share-img')[0].addEventListener('click', shareImgView.clickHide);
-        // loadView.onhide = indexPageBack;
-        // loadView.load();
     };
-    // var indexPageBack = function () {
-    //     var indexView = pagePool.indexView;
-    //     indexView.show();
-    //     // indexView.onhide = gamePageBack;
-    // };
-
     loadPageBack();
 };
