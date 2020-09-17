@@ -8,19 +8,19 @@
 import '../less/style.less';
 
 /** The animate() method */
-import '../../util/fx';
+import './util/fx';
 /** Animated show, hide, toggle, and fade*() methods. */
-import '../../util/fx_methods';
+import './util/fx_methods';
 
 // 引入的包根据实际情况而定
 import LoadViewController from './app/LoadViewController';
 // import TD from './app/module/TD';
 import IndexViewController from './app/IndexViewController';
-import MediaSprite from '../module/MediaSprite';
+import MediaSprite from './app/module/MediaSprite';
 import VideoTwoViewController from './app/VideoTwoViewController';
-import DonateViewController from './DonateViewController';
+import DonateViewController from './app/DonateViewController';
 import ShareViewController from './app/ShareViewController';
-import ShareImgViewController from './ShareImgViewController';
+import ShareImgViewController from './app/ShareImgViewController';
 
 // 页面级对象池
 var pagePool = {
@@ -38,7 +38,7 @@ let media = new MediaSprite({
     type: 'video',
     src: '../media/vh.mp4',
     classname: 'video sizcont abcter',
-    ifLoadAni: true,
+    isLoadAin: true,
     timeline: {
         'first': {
             begin: 47.0,
@@ -66,6 +66,8 @@ let mediaTwo = new MediaSprite({
 });
 
 window.onload = function () {
+    console.log($('.m-wrap').show);
+    $('.m-wrap').show();
     // load页面
     var loadPageBack = function () {
         pagePool.loadView = pagePool.loadView || new LoadViewController();
@@ -74,15 +76,16 @@ window.onload = function () {
         pagePool.donateView = pagePool.donateView || new DonateViewController();
         pagePool.shareView = pagePool.shareView || new ShareViewController();
         pagePool.shareImgView = pagePool.shareImgView || new ShareImgViewController();
+
         var loadView = pagePool.loadView;
         var videoView = pagePool.videoTwoView;
         var shareView = pagePool.shareView;
         var shareImgView = pagePool.shareImgView;
         // var donateView = pagePool.donateView;
         loadView.show();
+
         // 点击开启童话
-        console.log('aaa');
-        $('.m-loading')[0].addEventListener('click', function (){
+        $('.m-loading')[0].addEventListener('click', function () {
             loadView.hide();
             $('.btn-skip').css('display', 'block');
             media.play();
@@ -104,29 +107,29 @@ window.onload = function () {
         });
         // 童话成真
         $('.btn-want-donate')[0].addEventListener('click', function () {
-            console.log(videoView.this);
-            // $('.donate-warp').css('z-index', '2');
             videoView.this.css({
-                'opacity': '0',
-                'visibility': 'hidden',
-                'display': 'none'
+                'opacity': '1',
+                'visibility': 'visible'
             });
+            $('.donate-warp').show();
             $('.money-warp').removeClass('money-top');
         });
         // 取消
         $('.btn-close')[0].addEventListener('click', function () {
-            // console.log('点击了取消');
             videoView.this.css({
                 'opacity': '1',
-                'visibility': 'visible',
-                'display': 'block'
+                'visibility': 'visible'
             });
+            setTimeout(() => {
+                $('.donate-warp').hide();
+            }, 500);
             $('.money-warp').addClass('money-top');
         });
         // 捐款页
         $('.btn-donate')[0].addEventListener('click', function () {
             var donateView = pagePool.donateView;
             donateView.hide();
+            videoView.hide();
         });
 
         // 分享页

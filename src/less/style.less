@@ -4,7 +4,10 @@
 // @import './font.css';
 
 @img: '../img/';
-
+@font-face{
+	font-family: fontStyle;
+	src: url('../img/fontsyle.ttf');
+}
 
 html,
 body {
@@ -190,9 +193,9 @@ body {
 	.bg{
 		width: 7.5rem;
 		height: 16rem;
-		background-image: url('@{img}/end/bg.png');
+		background-image: url('@{img}/end/bg2.png');
 		.m-video-two{
-			width: 7rem;
+			width: 6.8rem;
 			height: 3.68rem;
 			border-radius: .2rem;
 			margin-top: -1.58rem;
@@ -213,11 +216,13 @@ body {
 	}
 }
 .donate-warp {
+	display: none;
 	width: 7.5rem;
 	height: 16rem;
 	background-image: url('@{img}/donate/bg.png');
 	overflow: hidden;
-	z-index: 2;
+	z-index: 4;
+	transition: all 1s linear;
 	.money-top{
 		margin-top: -20rem;
 	}
@@ -266,6 +271,7 @@ body {
 			color: #2f3133;
 			outline: none;
 			border: none;
+			font-family: fontStyle;
 		}
 		.btn-donate{
 			width: 1.8rem;
@@ -299,6 +305,7 @@ body {
 		margin: -3.3rem 0 0 2.2rem;
 		font-size: 0.42rem;
 		line-height: .6rem;
+		font-family: fontStyle;
 	}
 	.p-img {
 		width: 6.16rem;

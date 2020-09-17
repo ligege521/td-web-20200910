@@ -107,23 +107,22 @@ window.onload = function () {
         });
         // 童话成真
         $('.btn-want-donate')[0].addEventListener('click', function () {
-            console.log(videoView.this);
-            // $('.donate-warp').css('z-index', '2');
             videoView.this.css({
-                'opacity': '0',
-                'visibility': 'hidden',
-                'display': 'none'
+                'opacity': '1',
+                'visibility': 'visible'
             });
+            $('.donate-warp').show();
             $('.money-warp').removeClass('money-top');
         });
         // 取消
         $('.btn-close')[0].addEventListener('click', function () {
-            console.log('点击了取消');
             videoView.this.css({
                 'opacity': '1',
-                'visibility': 'visible',
-                'display': 'block'
+                'visibility': 'visible'
             });
+            setTimeout(() => {
+                $('.donate-warp').hide();
+            }, 500);
             $('.money-warp').addClass('money-top');
         });
         // 捐款页

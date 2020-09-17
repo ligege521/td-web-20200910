@@ -27,16 +27,16 @@ Config.Preload = Preload;
 
 // 预加载的图片
 Config.pageImgs = {
-    imgs: [
-        // {
-        //     name: 'test',
-        //     url: require('../../media/test_audio.mp3')
-        // },
-        // {
-        //     name: 'test2',
-        //     url: require('../../img/2.png')
-        // }
-    ],
+    // imgs: [
+    //     {
+    //         name: 'test',
+    //         url: require('../../media/test_audio.mp3')
+    //     },
+    //     {
+    //         name: 'test2',
+    //         url: require('../../img/2.png')
+    //     }
+    // ],
     sprites: [
         /*
         {
