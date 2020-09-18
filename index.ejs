@@ -75,6 +75,7 @@
                 
                 <div class="m-video abcter sizcont">
                     <div class="btn-skip abs sizcont">跳过</div>
+                    <!-- <video class="video sizcont abcter" src="<%= require('./src/media/vh.mp4') %>" autoplay preload="auto"></video> -->
                     <!-- js代码中添加视频播放 -->
                 </div>
 
@@ -95,7 +96,7 @@
                     <div class="money-warp money-top abs sizcont">
                         <div class="btn-want-donate abcter sizcont"></div>
                         <a class="btn-money sizcont abcter">1</a>
-                        <a class="btn-money sizcont abcter">5</a>
+                        <a class="btn-money sizcont abcter" style="background-image: url(<%= require('./src/img/donate/5.png') %>);">5</a>
                         <a class="btn-money sizcont abcter">10</a>
                         <input type="number" class="hover-money abcter" value="5">
                         <div class="btn-donate abcter"></div>
@@ -108,16 +109,14 @@
                     <div class="bg sizcont abcter"></div>
                     <div class="headimg abcter sizcont"></div>
                     <div class="text tcter">
-                        我是<br>第<i>。。。</i>位守护者
+                        我是<i class="name"></i><br>第<i>。。。</i>位守护者
                     </div>
                     <div class="p-img abcter sizcover"></div>
                     <div class="btn-save sizcont abcter"></div>
                 </div>
                 <div class="m-share-img sizcont absf">
                     <div class="bg abcter sizcont"></div>
-                    <div class="save-share abcter sizcont">
-                        <img class="save-img" src="<%= require('./src/img/share/shareImg/share_img_1.jpg') %>" alt="">
-                    </div>
+                    <div class="save-share abcter sizcont"></div>
                     <div class="save-tips abcter sizcont">长按图片保存至相册</div>
                 </div>
                 <!-- 业务逻辑代码 end -->

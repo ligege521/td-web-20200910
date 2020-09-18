@@ -17,6 +17,7 @@ let MediaSprite = new TD.MediaSprite({
   src: 'http://hymm.treedom.cn/sound/bg.mp3',
   classname: '.m-video',
   isLoadAin:false,
+  isControls:false,
   timeline: {
     'first': {
        begin: 0.0,
@@ -53,7 +54,6 @@ const MediaSprite = function (config) {
         config.height = config.height || 1200;
         config.type = config.type || 'contain'; // 'cover'、'contain'
         // console.log(config);
-        console.log('resizeVideo');
 
         let resizeGo = function () {
             if (this.currentTime > 0) {
@@ -81,26 +81,27 @@ const MediaSprite = function (config) {
         media.addEventListener('timeupdate', resizeGo);
     };
 
-    let loadAnimation = function () {
-        media.addEventListener('loadstart', () => {
-            $('.icon-loading').css('display', 'block');
-        });
-        // media.addEventListener('canplay', () => {
-        //     $('.icon-loading').hide();
-        // });
-        media.addEventListener('canplay', () => {
-            setTimeout(() => {
-                $('.icon-loading').hide();
-            }, 500);
-        });
-    };
+    // let loadAnimation = function () {
+    //     media.addEventListener('loadstart', () => {
+    //         $('.icon-loading').css('display', 'block');
+    //     });
+    //     media.addEventListener('canplay', () => {
+    //         setTimeout(() => {
+    //             $('.icon-loading').hide();
+    //         }, 500);
+    //     });
+    // };
     let _createMedia = function () {
         if (_config.type === 'video') {
             media = document.createElement('video');
-
             media.setAttribute('webkit-playsinline', '');
             media.setAttribute('playsinline', '');
             media.setAttribute('preload', 'preload');
+            media.setAttribute('poster', '');
+            media.setAttribute('preload', 'auto');
+            if (_config.isControls) {
+                media.setAttribute('controls', '');
+            }
             media.className = _config.classname;
         } else {
             media = document.createElement('audio');
@@ -127,7 +128,7 @@ const MediaSprite = function (config) {
 
         media.currentTime = begin;
 
-        media.style.visibility = 'visible';
+        // media.style.visibility = 'visible';
 
         if (!isInit) {
             // todo: 放大视频
@@ -147,7 +148,8 @@ const MediaSprite = function (config) {
                         media.style.zIndex = 0;
                     }
 
-                    media.style.visibility = 'hidden';
+                    // media.style.visibility = 'hidden';
+                    media.style.opacity = 0;
                     media.removeEventListener('timeupdate', playHandler);
                     callback && callback(name);
                 }
@@ -173,9 +175,9 @@ const MediaSprite = function (config) {
 
     let _init = function () {
         _createMedia();
-        if (_config.isLoadAin) {
-            loadAnimation();
-        }
+        // if (_config.isLoadAin) {
+        //     loadAnimation();
+        // }
     };
 
     let pause = function () {

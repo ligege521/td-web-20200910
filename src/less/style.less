@@ -171,6 +171,7 @@ body {
 	.video{
 		width: 7.5rem;
 		height: 16rem;
+		object-fit:cover;
 	}
 }
 .btn-skip{
@@ -248,24 +249,23 @@ body {
 			margin-top: -3.1rem;
 			margin-left: 1.2rem;
 		}
-		.btn-money:nth-child(1){
-			// background-image: url('@{img}/donate/1.png');
+		
+		.btn-money:nth-of-type(1){
+			margin-left: -1.2rem;
+			
+		}
+		.btn-money:nth-of-type(2){
 			margin-left:0rem ;
 		}
-		.btn-money:nth-child(2){
-			// background-image: url('@{img}/donate/5.png');
-			margin-left: -1.2rem;
-		}
-		.btn-money:nth-child(3){
-			// background-image: url('@{img}/donate/10.png');
-			margin-left: 0.1rem;
+		.btn-money:nth-of-type(3){
+			margin-left: 1.2rem;
 		}
 		.hover-money{
 			background: transparent;
 			width: 2.5rem;
 			height: .5rem;
 			text-align: right;
-			margin-top: -2.25rem;
+			margin-top: -2.3rem;
 			margin-left: .5rem;
 			font-size: .35rem;
 			color: #2f3133;
@@ -311,7 +311,6 @@ body {
 		width: 6.16rem;
 		height: 5.5rem;
 		margin-top: 0.6rem;
-		background-image: url('@{img}/share/share2.png');
 		background-position-y: 60%;
 	}
 	.btn-save{

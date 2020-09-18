@@ -1,5 +1,6 @@
 // 加载页对象
 var ShareViewController = function () {
+    var nameArr = ['毛滢', '杨绪娇', '刘祖杨', '汤雁', '张粤普'];
     // 公共变量
     var _that = this;
 
@@ -24,6 +25,15 @@ var ShareViewController = function () {
 
     // this
     _that.this = _private.pageEl[0];
+
+    // 随机插入内容图片
+    var ranImg = Math.ceil(Math.random() * 5);
+    $('.name').text(nameArr[ranImg - 1]);
+    var imgUrl = require(`../../img/share/contentImg/${ranImg}.jpg`);
+    $('.p-img').css('background-image', `url(${imgUrl})`);
+
+    // 返回分享图片的数字
+    _that.ranName = ranImg;
 
     // 保存车票点击
     _that.saveClick = function (e) {

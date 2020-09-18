@@ -19,8 +19,6 @@ var DonateViewController = function () {
         // var indexBox = _private.pageEl.find('.index-box');
 
         _private.isInit = true;
-
-        $('.btn-money').eq(1).css('background-image', `url('../../img/donate/${5}.png')`);
     };
 
     _that.click = function () {
@@ -28,17 +26,19 @@ var DonateViewController = function () {
     };
     _that.this = _private.pageEl;
 
+    // 分享页面点击选择金额
     _private.pageEl.click(function (e) {
         var clickIndex = null;
         var bgIndex = null;
+        var imgUrl = null;
         if (e.target.localName === 'a') {
             $('.btn-money').each(function (index, item) {
                 item.style.backgroundImage = '';
                 clickIndex = (e.target === item) ? item : clickIndex;
             });
             bgIndex = $(clickIndex).text();
-            $(clickIndex).css('background-image', `url('../../img/donate/${bgIndex}.png')`);
-            console.log();
+            imgUrl = require(`../../img/donate/${bgIndex}.png`);
+            $(clickIndex).css('background-image', `url(${imgUrl})`);
             $('.hover-money').val(bgIndex);
         }
     });

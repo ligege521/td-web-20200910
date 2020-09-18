@@ -218,14 +218,18 @@ const Preload = function (pm, keyW) {
             this.onload && this.onload();
             return;
         }
-
         imgsLen !== 0 && loadImg();
         spritesLen !== 0 && loadSprite();
         keyimgsLen !== 0 && loadKeyimg();
         ajaxsLen !== 0 && loadAjax();
     };
+    // fn.buffer = {
+    //     imgs: {},
+    //     sprites: {},
+    //     keyimgs: {}
+    // };
+    // return fn;
 };
-
 Preload.buffer = {
     imgs: {},
     sprites: {},

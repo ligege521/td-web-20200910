@@ -73,14 +73,14 @@ var LoadViewController = function () {
         _private.processLineEl = _private.pageEl.find('.loadProcess .inner');
 
         _private.gload = new Config.Preload(Config.pageImgs);
-
+        // console.log(Config.Preload.buffer);
         _private.gload.onloading = function (p) {
-            console.log(p);
+            // console.log(p);
             _private.processLineEl.css('height', p + '%');
         };
 
         _private.gload.onload = function () {
-            _that.hide();
+            // _that.hide();
         };
 
         _private.gload.onfail = function (msg) {

@@ -33,6 +33,14 @@ var ShareImgViewController = function () {
         }
     };
 
+    // 向分享页面插入图片
+    _that.insertImg = function (ranName) {
+        var imgUrl = require(`../../img/share/shareImg/share_img_${ranName}.jpg`);
+        var img = document.createElement('img');
+        $(img).addClass('save-img');
+        img.src = imgUrl;
+        $('.save-share').append(img);
+    };
     // 长按保存--------------------
     // function longPress (fn) {
     //     let domEl = _private.clickEl;

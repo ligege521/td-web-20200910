@@ -12,6 +12,8 @@ import './util/fx';
 /** Animated show, hide, toggle, and fade*() methods. */
 import './util/fx_methods';
 
+// import Preload from './app/module/Preload';
+
 // 引入的包根据实际情况而定
 import LoadViewController from './app/LoadViewController';
 // import TD from './app/module/TD';
@@ -31,7 +33,6 @@ var pagePool = {
     shareView: null,
     shareImgView: null
 };
-
 // 向页面插入第一个视频
 let media = new MediaSprite({
     wrap: '.m-video',
@@ -39,10 +40,11 @@ let media = new MediaSprite({
     src: '../media/vh.mp4',
     classname: 'video sizcont abcter',
     isLoadAin: true,
+    isControls: false,
     timeline: {
         'first': {
             begin: 47.0,
-            end: 49.0
+            end: 50.0
         },
         'second': {
             begin: 10.0,
@@ -57,6 +59,7 @@ let mediaTwo = new MediaSprite({
     type: 'video',
     src: '../media/vl.mp4',
     classname: 'video-two sizcover abcter',
+    isControls: true,
     timeline: {
         'first': {
             begin: 0.0,
@@ -65,7 +68,8 @@ let mediaTwo = new MediaSprite({
     }
 });
 
-window.onload = function () {
+let init = function () {
+    // let videoOne = $('.video');
     $('.m-wrap').show();
     // load页面
     var loadPageBack = function () {
@@ -80,14 +84,17 @@ window.onload = function () {
         var videoView = pagePool.videoTwoView;
         var shareView = pagePool.shareView;
         var shareImgView = pagePool.shareImgView;
-        // var donateView = pagePool.donateView;
-        loadView.show();
+        var donateView = pagePool.donateView;
 
+        // 加载页面资源
+        loadView.load();
+        loadView.show();
         // 点击开启童话
         $('.m-loading')[0].addEventListener('click', function () {
+            // videoOne[0].play();
+            media.play();
             loadView.hide();
             $('.btn-skip').css('display', 'block');
-            media.play();
         });
 
         // 点击跳过
@@ -96,13 +103,22 @@ window.onload = function () {
             this.style.display = 'none';
         });
         // 第一个视频播放结束
+        // media.dom.addEventListener('timeupdate', function () {
+        //     if (this.currentTime >= 49) {
+        //         mediaTwo.dom.addEventListener('canplaythrough', () => {
+        //             console.log('end');
+        //         });
+        //     }
+        // });
         media.dom.addEventListener('ended', function () {
-            if (this.parentNode) {
-                this.parentNode.style.display = 'none';
-            } else {
-                this.style.display = 'none';
-            }
-            mediaTwo.play();
+            // mediaTwo.play();
+            setTimeout(() => {
+                if (this.parentNode) {
+                    this.parentNode.style.display = 'none';
+                } else {
+                    this.style.display = 'none';
+                }
+            }, 0);
         });
         // 童话成真
         $('.btn-want-donate')[0].addEventListener('click', function () {
@@ -126,16 +142,18 @@ window.onload = function () {
         });
         // 捐款页
         $('.btn-donate')[0].addEventListener('click', function () {
-            var donateView = pagePool.donateView;
             donateView.hide();
             videoView.hide();
         });
 
         // 分享页
         $('.btn-save')[0].addEventListener('click', shareView.saveClick);
+        let ranName = shareView.ranName;
 
         // 分享图片页
+        shareImgView.insertImg(ranName);
         $('.m-share-img')[0].addEventListener('click', shareImgView.clickHide);
     };
     loadPageBack();
 };
+init();

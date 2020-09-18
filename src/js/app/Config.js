@@ -27,16 +27,52 @@ Config.Preload = Preload;
 
 // 预加载的图片
 Config.pageImgs = {
-    // imgs: [
-    //     {
-    //         name: 'test',
-    //         url: require('../../media/test_audio.mp3')
-    //     },
-    //     {
-    //         name: 'test2',
-    //         url: require('../../img/2.png')
-    //     }
-    // ],
+    imgs: [
+        {
+            name: 'loadingBg',
+            url: require('../../img/loading/bg.png')
+        },
+        {
+            name: 'endBg',
+            url: require('../../img/end/bg.png')
+        },
+        {
+            name: 'shareBg',
+            url: require('../../img/share/bg.png')
+        },
+        {
+            name: 'donateBg',
+            url: require('../../img/donate/bg.png')
+        },
+        {
+            name: 'donate',
+            url: require('../../img/donate/donate.png')
+        },
+        {
+            name: 'shareImgBg',
+            url: require('../../img/share/shareImg/bg.png')
+        },
+        {
+            name: 'shareImg1',
+            url: require('../../img/share/shareImg/share_img_1.jpg')
+        },
+        {
+            name: 'shareImg2',
+            url: require('../../img/share/shareImg/share_img_2.jpg')
+        },
+        {
+            name: 'shareImg3',
+            url: require('../../img/share/shareImg/share_img_3.jpg')
+        },
+        {
+            name: 'shareImg4',
+            url: require('../../img/share/shareImg/share_img_4.jpg')
+        },
+        {
+            name: 'shareImg5',
+            url: require('../../img/share/shareImg/share_img_5.jpg')
+        }
+    ],
     sprites: [
         /*
         {
